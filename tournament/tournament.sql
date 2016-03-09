@@ -6,7 +6,9 @@
 -- You can write comments in this file by starting them with two dashes, like
 -- these lines here.
 
-CREATE DATABASE tournament IF NOT EXISTS;
+-- Drop the tournament database and recreate it
+DROP DATABASE IF EXISTS tournament;
+CREATE DATABASE tournament;
 
 -- Connect to tournament database
 \connect tournament;
