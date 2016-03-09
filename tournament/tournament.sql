@@ -6,6 +6,10 @@
 -- You can write comments in this file by starting them with two dashes, like
 -- these lines here.
 
+CREATE DATABASE tournament IF NOT EXISTS;
+
+-- Connect to tournament database
+\connect tournament;
 
 -- Create the players table
 CREATE TABLE players (
@@ -15,8 +19,8 @@ CREATE TABLE players (
 
 -- Create the matches table
 CREATE TABLE matches (
-	winner SERIAL REFERENCES players(id),
-	loser SERIAL REFERENCES players(id)
+	winner SERIAL REFERENCES players(id) ON DELETE CASCADE,
+	loser SERIAL REFERENCES players(id) ON DELETE CASCADE
 );
 
 -- Create view for player standings
